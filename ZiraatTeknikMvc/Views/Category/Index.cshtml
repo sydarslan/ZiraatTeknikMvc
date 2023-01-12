@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concreate
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="clearfix"></div>
+
+<div class="col-12 ">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Kategori Listesi</h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    @Html.Action("CategoryAddPartial","Category")
+                    @*<a data-toggle="tooltip" data-placement="top" title="Yeni Kategori Ekle" href="#"><i class="fa fa-plus-circle"></i></a>*@        
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th class="text-center">KATEGORİ ADI</th>
+
+                        <th class="text-center">GÜNCELLE</th>
+                        <th class="text-center">SİL</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.CategoryId</th>
+                            <td class="text-center">@item.CategoryName</td>
+                            <td class="text-center"><a href="/Category/CategoryUpdate/@item.CategoryId" class="btn btn-outline-dark">Güncelle</a></td>
+                            <td class="text-center"><a href="/Category/CategoryDelete/@item.CategoryId" class="btn btn-outline-info">Sil</a></td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

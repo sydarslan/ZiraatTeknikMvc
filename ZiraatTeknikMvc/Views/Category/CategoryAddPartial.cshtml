@@ -1,0 +1,21 @@
+﻿@model EntityLayer.Concreate.Category
+
+<a data-toggle="modal" data-placement="top" data-target="#Modal1" title="Yeni Kategori Ekle" ><i class="fa fa-plus-circle"></i></a>   
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">YEni Kategori</h2>
+            </div>
+            <form method="post" action="/Category/CategoryAdd">
+                <div class="modal-body">
+                    @Html.Label("Kategori Adı")
+                    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.CategoryName)
+                </div>
+                <button style="margin-left:200px" class="btn btn-outline-info">Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>
+     
